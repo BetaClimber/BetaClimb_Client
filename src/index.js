@@ -7,14 +7,19 @@ import registerServiceWorker from './registerServiceWorker';
 import store from './store/CragStore';
 
 import StoreRender from './components/StoreRender';
+import { Navigation } from './components/Navigation'
 
 class App extends Component {
   render(){
     return(
-      <div className="">
+      <div className="app-wrapper">
+          {/* <div className="box">
 
-          <div className="box">
-            <h1 className="title">Ropeless</h1>
+            <div className="app-header">
+              <img className='app-logo' src="./assets/images/BetaClimb.png" alt="BetaClimb"/>
+              <h1 className="title">BetaClimb</h1>
+            </div>
+
             <StoreRender className="store-render" store={store} />
 
           <div className="dark-mode">
@@ -23,7 +28,9 @@ class App extends Component {
               <span className="slider round"></span>
             </label>
           </div>
-        </div>
+        </div> */}
+        <Navigation />
+
 
       </div>
     );
