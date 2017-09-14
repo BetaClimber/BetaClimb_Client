@@ -12,6 +12,7 @@ let StoreRender = observer(
       <div className="routes-container">
 
         <input className="filter-routes" value={filter} onChange={this.filter.bind(this) }/>
+        {this.props.store.filter}
         {this.props.store.filteredRoutes.map((route, i) => {
           return(
             <p key={i} className="store-test">{route}</p>
