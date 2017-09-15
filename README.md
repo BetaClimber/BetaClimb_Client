@@ -1,6 +1,6 @@
-# Ropeless-Client
+# BetaClimb
 
-#### What is Ropeless:
+#### What is BetaClimb:
 
 > An free and open-source application enabling climbers to:
 
