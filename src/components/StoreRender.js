@@ -3,9 +3,11 @@ import { observer } from 'mobx-react';
 
 let StoreRender = observer(
   class StoreRender extends Component {
-    filter(e){
-      this.props.store.filter = e.target.value;
+
+    filter(event){
+      this.props.store.filter = event.target.value;
     }
+
   render() {
     const { filter, filteredRoutes } = this.props.store;
     return(
@@ -13,7 +15,7 @@ let StoreRender = observer(
 
         <input className="filter-routes" value={filter} onChange={this.filter.bind(this) }/>
         {this.props.store.filter}
-        {this.props.store.filteredRoutes.map((route, i) => {
+        {this.props.store.climbName.map((route, i) => {
           return(
             <p key={i} className="store-test">{route}</p>
           );

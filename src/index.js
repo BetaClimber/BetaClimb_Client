@@ -10,36 +10,55 @@ import store from './store/Store';
 import { getClimbs } from './axios/requests';
 
 import StoreRender from './components/StoreRender';
-import { Navigation } from './components/Navigation'
+import Navigation  from './components/Navigation'
 
 class App extends Component {
 
   componentDidMount() {
     let climbingData = null;
     let notes = null;
+    let badgeList = null;
+
     getClimbs().then((results) => {
-    climbingData = results.data;
-    notes = climbingData.data.map((climb, i) => {
-      return {
-        climbID: climb.id,
-        Notes: climb.notes
-      };
+
+      climbingData = results.data;
+      climbingData.map((climbs, i) => {
+        store.climbName[i] = climbs.name;
+        store.climbType[i] = climbs.climbType;
+        store.grade[i] = climbs.grade;
+        store.gradeType[i] = climbs.gradeType;
+        return climbs;
+      });
+
+      badgeList = this.climbCount(climbingData.length);
+
+      notes = climbingData.map((climb, i) => {
+        return ({
+                climbID: climb.id,
+                content: climb.notes
+              });
+      });
+
+      store.badges = badgeList || [];
+      store.notes = notes;
+      store.climbs = climbingData;
     });
+  }
 
-    store.routeData = climbingData;
+  climbCount(stats) {
+    let statList = [];
 
-    store.climbs = climbingData.data;
+    if (stats >= 1) {
+      statList.push('You completed your first climb.');
+    }
+    if (stats >= 3) {
+      statList.push('You completed your third climb.');
+    }
+    return statList;
+  }
 
-    climbingData.data.map((climbs, i) => {
-      store.climbName[i] = climbs.name;
-      store.climbType[i] = climbs.climbType;
-      store.grade[i] = climbs.grade;
-      store.gradeType[i] = climbs.gradeType;
-      return climbs;
-    });
+  thirdClimb(stats) {
 
-    store.logs = notes;
-    });
   }
 
   render(){

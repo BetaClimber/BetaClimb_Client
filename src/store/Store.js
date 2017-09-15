@@ -9,7 +9,9 @@ class CragStore {
       climbType: [],
       grade: [],
       gradeType: [],
-      logs: [],
+      notes: [],
+      badges: [],
+      files: [],
 
       testRoutes: [
         "Crack-of-Dawn", "El Cap", "DBC_V3"

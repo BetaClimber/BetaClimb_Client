@@ -7,6 +7,15 @@ export class Stats extends Component {
     return(
     <div className="stats-wrapper">
       <p>Total Climbs: { store.climbs.length }</p>
+
+      <h2>Badges</h2>
+      <ul>
+        {store.badges.map((badge, i) => {
+          return (
+            <li key={i}>{badge}</li>
+          );
+        })}
+      </ul>
     </div>
     );
   };
