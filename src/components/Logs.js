@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import Log from './Log';
+import Note from './Note';
 
-let Logs = observer( class Logs extends Component {
+let climb;
+
+class Logs extends Component {
+
+  componentDidMount() {
+  }
+
   render() {
-    let climb = this.props.climb;
+    climb = this.props.climb
+
     return(
       <div className="logs-wrapper">
         <p>ClimbType: {climb.climbType}</p>
@@ -16,15 +23,15 @@ let Logs = observer( class Logs extends Component {
             {this.props.climb.notes.map((note, i) => {
               const noteBuilder = () => {
                 return (
-                  <Log log={ climb.notes } key={i} />
+                  <Note popData={ this.props.onPop } delete={ this.props.onDelete.bind(this) } note={ note } key={i}  />
                 );
               }
 
               return (
                 <div key={i} className="note-link-wrapper">
 
-                  <li><Link to={`/${ note.title }`} key={i} >{ note.title }</Link></li>
-                  <Route path={`/${ note.title }`} render={ noteBuilder } key={i}></Route>
+                  <li><Link to={`/notes_${i}`} key={i} >{ note.title }</Link></li>
+                  <Route path={`/notes_${i}`} render={ noteBuilder } key={i}></Route>
 
                 </div>
               );
@@ -34,6 +41,6 @@ let Logs = observer( class Logs extends Component {
       </div>
     );
   }
-});
+};
 
 export default Logs;

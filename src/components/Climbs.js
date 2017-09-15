@@ -1,43 +1,66 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
-
+import { deleteNotes, getClimbs } from '../axios/requests';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+import { observer } from 'mobx-react';
 
 import Logs from './Logs';
 
-let Climbs = observer(
-  class Climbs extends Component {
+@observer
+class Climbs extends Component {
 
-  render() {
-    return (
-      <div className="navigation-wrapper">
-        <Router>
-              <ul>
-                  {
-                    this.props.store.climbName.map((name, i) => {
-                      const logBuilder = () => {
-                        return(
-                          <Logs climb={this.props.store.climbs[i]} key={i} />
+onDelete(note_id) {
+  deleteNotes(note_id).then(() => {
+    getClimbs().then((results) => {
+        this.props.store.climbs.replace(results.data);
+        console.log(this.props.store.climbs);
+        this.forceUpdate();
 
-                        );
-                      }
+      results.data.map((climbs, i) => {
+        this.props.store.climbName[i] = climbs.name;
+        return climbs;
+      });
+    });
+  });
+}
 
-                      return (
-                        <div key={i} className="route-links-wrapper">
+filter(event) {
+  this.props.store.filter = event.target.value;
+}
 
-                          <li><Link to={`/${name}`} key={i}>{ name }</Link></li>
-                          <Route path={`/${name}`} render={logBuilder}></Route>
+render() {
+  let { filter, filteredRoutes, climbName } = this.props.store;
+  console.log(this.props.store);
+  return (
+    <div className="navigation-wrapper">
+      <input className="filter-routes" onChange={ this.filter.bind(this) }/>
+      <Router>
+            <ul>
+                {this.props.store.filteredRoutes.map((name, i) => {
+                    const logBuilder = () => {
+                      return(
+                        <Logs climb={ this.props.store.climbs[i] } key={ i } onPop={ this.props.popData } onDelete={ this.onDelete.bind(this) } />
 
-                        </div>
                       );
-                    })
-                  }
-              </ul>
-        </Router>
-      </div>
-    );
-  }
-});
+                    }
+
+                    return (
+                      <div key={i} className="route-links-wrapper">
+
+                        <li><Link onClick={this.unMountPath} to={`/${name}`} key={i}>{ name }</Link></li>
+                        <Route path={`/${name}`} render={logBuilder}></Route>
+
+                      </div>
+                    );
+                  })
+                }
+            </ul>
+      </Router>
+    </div>
+
+  );
+}
+};
 
 export default Climbs;
 
@@ -57,8 +80,4 @@ Once I have a way to set a prop relating to the climb_id then I can render.
     - I want to figure out how to POST the data or just make seperate requests to the respective tables.
   - Then I want to create a delete rotue that links to a button.
     - Make an axios DELETE request and that get the join tablek to be deleted.
-    -
-
-
-
 */
