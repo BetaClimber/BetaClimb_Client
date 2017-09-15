@@ -1,18 +1,10 @@
-import {extendObservable, computed} from "mobx";
+import {extendObservable, observable, computed} from "mobx";
 
 class CragStore {
+
   constructor() {
     extendObservable(this, {
-      routeData: [],
-      climbs:[],
       climbName: [],
-      climbType: [],
-      grade: [],
-      gradeType: [],
-      notes: [],
-      badges: [],
-      files: [],
-
       testRoutes: [
         "Crack-of-Dawn", "El Cap", "DBC_V3"
       ],
@@ -20,14 +12,21 @@ class CragStore {
       filter: "",
       filteredRoutes: computed(() => {
         let matchesFilter = new RegExp(this.filter, 'i');
-        return this.testRoutes.filter((route) => {
+        return this.climbName.filter((route) => {
           return !this.filter || matchesFilter.test(route);
         });
       })
     });
   }
+
+  @observable routeData = []
+  @observable climbs = []
+  @observable notes = []
+  @observable badges = []
+  @observable files = []
+
 }
 
-const store = window.store = new CragStore();
+const store = new CragStore();
 
 export default store;

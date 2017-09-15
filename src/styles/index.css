@@ -4,8 +4,8 @@ Compiled from SASS
 
 body {
   font-family: 'Oswald', sans-serif;
-  background-color: black;
-  color: rebeccaPurple;
+  /*background-color: black;*/
+  /*color: rebeccaPurple;*/
   font-size: 1rem;
   line-height: 1.41;
 }
@@ -136,10 +136,6 @@ h1 {
 Element Styles
 ============================================*/
 
-.title {
-  font-family: 'Muli', sans-serif;
-}
-
 p {
   font-size: inherit;
   font-family: 'Lato', sans-serif;
@@ -148,20 +144,30 @@ p {
 /*============================================
 Selector Styles
 ============================================*/
-
-.app-logo {
-  height: 50%;
-  width: 60%;
+.app-root {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 }
 
-.app-wrapper {
-  width: 100%;
-  height: 100%;
+.app-logo {
+  width: 270%;
+  height: 75%;
+  grid-area: 0 / 1 / 1 / 2;
 }
 
 .app-header {
-  display: inline-flex;
-  grid-area: 1 / 4 / 2 / 5;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 10% 10% 20% 20% 20%;
+  grid-area: 1 / 0 / 2 / 10;
+}
+
+.title {
+  font-family: 'Muli', sans-serif;
+  grid-area: 5 / 1 / 6 / 2;
 }
 
 .squares-grid {
@@ -175,11 +181,7 @@ Selector Styles
   background-color: salmon;
 }
 
-.box {
-  display: grid;
-  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-}
+
 
 .dark-mode {
   grid-area: 1 / 10 / 2 / 11;
@@ -187,6 +189,10 @@ Selector Styles
 
 .switch input {
   display: none;
+}
+
+.routes-container {
+  grid-area: 5 / 1 / 6 / 2;
 }
 
 /*============================================
