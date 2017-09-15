@@ -20,7 +20,7 @@ class Navigation extends Component{
   render() {
     const climbBuilder = () => {
       return(
-        <Climbs store={store} />
+        <Climbs store={ store } popData={ this.props.popData } />
       );
     }
 
