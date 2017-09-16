@@ -15,7 +15,7 @@ class Logs extends Component {
     climb = this.props.climb
 
     return(
-      <div className="logs-wrapper">
+      <div className="one-third logs-wrapper">
         <p>ClimbType: {climb.climbType}</p>
         <p>Grade: {climb.gradeType} | {climb.grade}</p>
         <Router>

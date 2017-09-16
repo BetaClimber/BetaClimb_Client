@@ -25,7 +25,7 @@ class Navigation extends Component{
     }
 
     return (
-      <div className="navigation-wrapper">
+        <div className="navigation-wrapper">
         <Router>
           <div>
             <ul>
@@ -35,12 +35,12 @@ class Navigation extends Component{
               <li><Link to="/image/upload">Upload</Link></li>
             </ul>
 
-            <hr/>
-
-            <Route path="/about" component={ Description }/>
-            <Route path="/climbs" render={ climbBuilder }/>
-            <Route path="/stats" component={ Stats }/>
-            <Route path="/image/upload" component={ Upload }/>
+            <div className="container content-render">
+              <Route path="/about" component={ Description }/>
+              <Route path="/climbs" render={ climbBuilder }/>
+              <Route path="/stats" component={ Stats }/>
+              <Route path="/image/upload" component={ Upload }/>        
+            </div>
           </div>
         </Router>
       </div>

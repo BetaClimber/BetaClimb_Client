@@ -32,7 +32,7 @@ render() {
   let { filter, filteredRoutes, climbName } = this.props.store;
   console.log(this.props.store);
   return (
-    <div className="navigation-wrapper">
+    <div className="one-third navigation-wrapper">
       <input className="filter-routes" onChange={ this.filter.bind(this) }/>
       <Router>
             <ul>
