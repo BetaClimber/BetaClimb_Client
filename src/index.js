@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+
 import './styles/index.css';
+
+import 'react-skeleton-css/styles/skeleton.2.0.4.css'
+import './styles/normalize.css';
 
 import { observer } from 'mobx-react';
 
@@ -13,6 +17,7 @@ import { getClimbs } from './axios/requests';
 
 import StoreRender from './components/StoreRender';
 import Navigation  from './components/Navigation'
+import {Animate} from './TweenMax/Animate';
 
 @observer
 class App extends Component {
@@ -50,26 +55,60 @@ class App extends Component {
   }
 
   render(){
-    return(
-      <div className="app-root">
+    const { onShow , showContent } = store;
+    console.log(onShow, showContent);
 
-            <div className="app-header">
-              <img className='app-logo' src="../assets/images/BetaClimb.png" alt="BetaClimb"/>
-              <h1 className="title">BetaClimb</h1>
+    return(
+    <div className="app-root">
+      <Animate />
+      <div className="section hero">
+        <div className="container">
+          <div className="row">
+            <div className="one-half column">
+              <img className="ledge" src="../assets/images/ledge.png"/>
+              <img className='app-brand' src="../assets/images/BetaClimb.png" alt="BetaClimb"/>
             </div>
 
-            <StoreRender className="store-render" store={store} />
-            <Navigation className="navigation" popData={ this.populateClimbingData.bind(this) } />
+            <div className="one-half column phones">
+              <img className="cliff" src="../assets/images/cliff.png"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      {onShow}
+      {(showContent) ? (
+        <span className="wrapper">
+          <div className="section values">
+            <div className="container">
+              <div className="row">
 
-          <div className="dark-mode">
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider round"></span>
-            </label>
+                <div className="one-third column">
+
+                </div>
+
+                <div className="one-third column">
+                  <StoreRender store={store} />
+                </div>
+
+                <div className="one-third column">
+                  <Navigation popData={ this.populateClimbingData.bind(this) } />
+                </div>
+              </div>
+            </div>
           </div>
 
+          <div className="section">
+            <div className="container">
+              <label className="switch">
+                <input type="checkbox" />
+                <span className="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </span>
+    ) : <h1>Loading</h1>}
 
-      </div>
+    </div>
     );
   }
 }
