@@ -10,6 +10,11 @@ body {
   line-height: 1.41;
 }
 
+img {
+  width: 40%;
+  height: auto;
+}
+
 @media screen and (min-width: 480px) {
   body {
     font-size: 18px;
@@ -109,29 +114,6 @@ h1 {
   }
 }
 
-/*.hero-title {
-  font-size: 2.1rem;
-  line-height: 1.36;
-}
-@media screen and (min-width: 480px) {
-  .hero-title {
-    font-size: 72px;
-    line-height: 1.13;
-  }
-}
-@media screen and (min-width: 960px) {
-  .hero-title {
-    font-size: 101.3px;
-    line-height: 1.28;
-  }
-}
-@media screen and (min-width: 1300px) {
-  .hero-title {
-    font-size: 164.5px;
-    line-height: 1.18;
-  }
-}
-
 /*============================================
 Element Styles
 ============================================*/
@@ -141,10 +123,72 @@ p {
   font-family: 'Lato', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none !important;
+}
+
 /*============================================
-Selector Styles
+  Animation Styles
 ============================================*/
-.app-root {
+
+.dot {
+  display: inline-block;
+  background-color: #AAE048;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 3px solid #2b5565
+}
+
+.dots {
+  color: salmon;
+  position: absolute;
+  margin-top: 30%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+/*============================================
+  Selector Styles
+============================================*/
+
+.app-brand {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.content-render .navigation-wrapper {
+  width: 200% !important;
+}
+
+.row {
+  min-width: 100% !important;
+}
+
+.column {
+  width: 30%;
+}
+
+.cliff {
+  width: 200%;
+  height: auto;
+}
+
+.ledge {
+  position: fixed;
+  width: 30%;
+  height: auto;
+  margin-left: -30%;
+}
+
+
+/*.app-root {
   width: 100%;
   display: grid;
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
@@ -193,7 +237,7 @@ Selector Styles
 
 .routes-container {
   grid-area: 5 / 1 / 6 / 2;
-}
+}*/
 
 /*============================================
 Slider
