@@ -4,15 +4,10 @@ Compiled from SASS
 
 body {
   font-family: 'Oswald', sans-serif;
-  /*background-color: black;*/
+  background-color: #0A828A;
   /*color: rebeccaPurple;*/
   font-size: 1rem;
   line-height: 1.41;
-}
-
-img {
-  width: 40%;
-  height: auto;
 }
 
 @media screen and (min-width: 480px) {
@@ -117,6 +112,10 @@ h1 {
 /*============================================
 Element Styles
 ============================================*/
+img {
+  width: 40%;
+  height: auto;
+}
 
 p {
   font-size: inherit;
@@ -131,8 +130,13 @@ ul {
   list-style: none !important;
 }
 
+rect {
+  stroke: #AAE048;
+  stroke-width: .5px;
+}
+
 /*============================================
-  Animation Styles
+  Animation Loader
 ============================================*/
 
 .dot {
@@ -157,14 +161,72 @@ ul {
   Selector Styles
 ============================================*/
 
+
+.navigation-wrapper {
+  margin-left: 55%;
+  padding-top: 16%;
+  height: 135%;
+  width: 60%;
+  position: absolute;
+  -ms-transform: rotate(-50deg);
+  -webkit-transform: rotate(-50deg);
+  transform: rotate(-50deg);
+}
+
+.navbar-link {
+  height: 40%;
+  width: 40%;
+  padding: 10px;
+  -ms-transform: rotate(50deg);
+  -webkit-transform: rotate(50deg);
+  transform: rotate(50deg);
+}
+
+.link_2 {
+  padding-bottom: 20px;
+}
+
+.link_3 {
+  padding-bottom: 60px;
+
+}
+
+.link_4 {
+  margin-top: -8%;
+  padding-bottom: 70px;
+}
+
+.link_5 {
+  margin-left: -60%;
+}
+
+img.dedicated-library {
+  height: 150px;
+  margin-top: 20%;
+  margin-bottom: -100px
+}
+
 .app-brand {
+  margin-left: 90%;
   display: flex;
   width: 100%;
   height: auto;
 }
 
+.rendered {
+  width: 600px;
+  margin-left: 70%;
+  margin-top: 30%;
+  padding-left: 10px;
+  -ms-transform: rotate(50deg);
+  -webkit-transform: rotate(50deg);
+  transform: rotate(50deg);
+}
+
 .content-render .navigation-wrapper {
-  width: 200% !important;
+  -ms-transform: rotate(50deg);
+  -webkit-transform: rotate(50deg);
+  transform: rotate(50deg);
 }
 
 .row {
@@ -185,6 +247,10 @@ ul {
   width: 30%;
   height: auto;
   margin-left: -30%;
+}
+
+.graph-wrapper {
+  margin-left: -200px;
 }
 
 

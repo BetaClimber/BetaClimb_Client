@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import './styles/index.css';
+import registerServiceWorker from './registerServiceWorker';
+import { getClimbs } from './axios/requests';
 
+import './styles/index.css';
 import 'react-skeleton-css/styles/skeleton.2.0.4.css'
 import './styles/normalize.css';
 
-import { observer } from 'mobx-react';
-
-import registerServiceWorker from './registerServiceWorker';
-
 import store from './store/Store';
 
-// requests
-import { getClimbs } from './axios/requests';
+import { observer } from 'mobx-react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Navigation }  from './components/Navigation'
+// import { PreLoader } from './TweenMax/PreLoader';
+import { Library } from './components/Library';
 
-import StoreRender from './components/StoreRender';
-import Navigation  from './components/Navigation'
-import {Animate} from './TweenMax/Animate';
 
 @observer
 class App extends Component {
@@ -60,24 +58,39 @@ class App extends Component {
 
     return(
     <div className="app-root">
-      <Animate />
-      <div className="section hero">
+      {/* { showContent ||<PreLoader /> } */}
+        <div className="section hero">
         <div className="container">
           <div className="row">
+
+            {/* { (showContent) ? ( */}
+              <div className="eleven columns"></div>
+              <Navigation className='one column' popData={ this.populateClimbingData.bind(this) } />
+          {/* ) : ''} */}
             <div className="one-half column">
               <img className="ledge" src="../assets/images/ledge.png"/>
               <img className='app-brand' src="../assets/images/BetaClimb.png" alt="BetaClimb"/>
             </div>
 
-            <div className="one-half column phones">
-              <img className="cliff" src="../assets/images/cliff.png"/>
-            </div>
+
+                <div className="one-half column phones">
+                  <img className="cliff" src="../assets/images/cliff.png"/>
+                </div>
+
+                <Router>
+                  <span>
+                    <Link className='link_5' to="/dedicated/library"><img className='dedicated-library' src="../assets/images/video_library.svg" alt="Library"/></Link>
+                    {/* <Route path="/dedicated/library" component={ Library }/> */}
+                  </span>
+                </Router>
+
+            {/* { onShow } */}
           </div>
         </div>
       </div>
-      {onShow}
-      {(showContent) ? (
-        <span className="wrapper">
+
+      {/* { (showContent) ? ( */}
+        {/*
           <div className="section values">
             <div className="container">
               <div className="row">
@@ -87,26 +100,13 @@ class App extends Component {
                 </div>
 
                 <div className="one-third column">
-                  <StoreRender store={store} />
                 </div>
 
-                <div className="one-third column">
-                  <Navigation popData={ this.populateClimbingData.bind(this) } />
-                </div>
               </div>
             </div>
           </div>
-
-          <div className="section">
-            <div className="container">
-              <label className="switch">
-                <input type="checkbox" />
-                <span className="slider round"></span>
-              </label>
-            </div>
-          </div>
-        </span>
-    ) : <h1>Loading</h1>}
+        </span> */}
+    {/* ) : <h1>Loading</h1> } */}
 
     </div>
     );

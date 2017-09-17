@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class Description extends Component{
   render() {
     return (
-      <div className="description-wrapper">
+      <div className="rendered">
         <p>
           Bacon ipsum dolor amet chicken t - bone shankle kielbasa bresaola pancetta meatloaf filet mignon.
           Andouille pork belly prosciutto shoulder boudin fatback corned beef meatloaf.

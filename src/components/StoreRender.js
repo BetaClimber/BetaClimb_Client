@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
 @observer
-class StoreRender extends Component {
+export class StoreRender extends Component {
 
   render() {
     const { filter, filteredRoutes, climbName } = this.props.store;
@@ -20,5 +20,3 @@ class StoreRender extends Component {
     );
   }
 };
-
-export default StoreRender;

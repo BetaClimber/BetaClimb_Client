@@ -7,7 +7,7 @@ import { observer } from 'mobx-react';
 import Logs from './Logs';
 
 @observer
-class Climbs extends Component {
+export class Climbs extends Component {
 
 onDelete(note_id) {
   deleteNotes(note_id).then(() => {
@@ -32,7 +32,7 @@ render() {
   let { filter, filteredRoutes, climbName } = this.props.store;
   console.log(this.props.store);
   return (
-    <div className="one-third navigation-wrapper">
+    <div className="rendered">
       <input className="filter-routes" onChange={ this.filter.bind(this) }/>
       <Router>
             <ul>
@@ -61,8 +61,6 @@ render() {
   );
 }
 };
-
-export default Climbs;
 
 /*
 need a way to pass the props into the route component or create a const class that represents that within this component.
