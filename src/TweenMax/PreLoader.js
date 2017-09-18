@@ -5,7 +5,7 @@ export class PreLoader extends Component {
 
   componentDidMount(){
     const TLDots = new TimelineMax({
-      repeat: 1,
+      repeat: 4,
       oncomplete: this.loadContent
     });
 
