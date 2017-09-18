@@ -4,7 +4,11 @@ Compiled from SASS
 
 body {
   font-family: 'Oswald', sans-serif;
-  background-color: #0A828A;
+  background: url('../background/nature2.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  /*background-size: cover;*/
   /*color: rebeccaPurple;*/
   font-size: 1rem;
   line-height: 1.41;
@@ -163,8 +167,8 @@ rect {
 
 
 .navigation-wrapper {
-  margin-left: 55%;
-  padding-top: 16%;
+  margin-left: 50%;
+  padding-top: 50%;
   height: 135%;
   width: 60%;
   position: absolute;
@@ -177,6 +181,7 @@ rect {
   height: 40%;
   width: 40%;
   padding: 10px;
+  padding-right: -1000px;
   -ms-transform: rotate(50deg);
   -webkit-transform: rotate(50deg);
   transform: rotate(50deg);
@@ -197,13 +202,12 @@ rect {
 }
 
 .link_5 {
-  margin-left: -60%;
+  position: absolute;
+  margin-top: -100%;
+  margin-left: 30%;
 }
 
 img.dedicated-library {
-  height: 150px;
-  margin-top: 20%;
-  margin-bottom: -100px
 }
 
 .app-brand {
@@ -215,9 +219,9 @@ img.dedicated-library {
 
 .rendered {
   width: 600px;
-  margin-left: 70%;
-  margin-top: 30%;
-  padding-left: 10px;
+  margin-left: 120%;
+  margin-top: -30%;
+  padding: 40px;
   -ms-transform: rotate(50deg);
   -webkit-transform: rotate(50deg);
   transform: rotate(50deg);
@@ -246,124 +250,34 @@ img.dedicated-library {
   position: fixed;
   width: 30%;
   height: auto;
-  margin-left: -30%;
+  margin-left: -60%;
 }
 
 .graph-wrapper {
   margin-left: -200px;
 }
 
-
-/*.app-root {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-}
-
-.app-logo {
-  width: 270%;
-  height: 75%;
-  grid-area: 0 / 1 / 1 / 2;
-}
-
-.app-header {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: 10% 10% 20% 20% 20%;
-  grid-area: 1 / 0 / 2 / 10;
-}
-
-.title {
-  font-family: 'Muli', sans-serif;
-  grid-area: 5 / 1 / 6 / 2;
-}
-
-.squares-grid {
-  font-size: 30px;
-  border: 10px solid black;
-  height: 40px;
-  width: 40px;
-}
-
-.store-test {
-  background-color: salmon;
-}
-
-
-
-.dark-mode {
-  grid-area: 1 / 10 / 2 / 11;
-}
-
-.switch input {
-  display: none;
-}
-
-.routes-container {
-  grid-area: 5 / 1 / 6 / 2;
-}*/
-
-/*============================================
-Slider
-============================================*/
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.slider {
+.fixed-routes{
   position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+.cliffnotes-title {
+  font-size: 6rem;
+  margin-bottom: 10%;
 }
 
-input:checked+.slider {
-  background-color: #2196F3;
+.cliff-navigation {
+  margin-left: 60%;
 }
 
-input:focus+.slider {
-  box-shadow: 0 0 1px #2196F3;
+.dedicated-library {
+  transform: rotate(50deg);
 }
 
-input:checked+.slider:before {
-  background-color: black;
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+.dedicated-library-player {
+  z-index: 0;
+  margin-left: -70%;
+  margin-top: 33%;
+  width: 600px;
+  height: 1100px;
 }
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-
-/*============================================
-  ScrollMagic
-============================================*/

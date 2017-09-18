@@ -4,9 +4,10 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { getClimbs } from './axios/requests';
 
-import './styles/index.css';
 import 'react-skeleton-css/styles/skeleton.2.0.4.css'
-import './styles/normalize.css';
+import './styles/index.css';
+// import './styles/normalize.css';
+
 
 import store from './store/Store';
 
@@ -14,8 +15,6 @@ import { observer } from 'mobx-react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Navigation }  from './components/Navigation'
 // import { PreLoader } from './TweenMax/PreLoader';
-import { Library } from './components/Library';
-
 
 @observer
 class App extends Component {
@@ -61,7 +60,7 @@ class App extends Component {
       {/* { showContent ||<PreLoader /> } */}
         <div className="section hero">
         <div className="container">
-          <div className="row">
+          <div className="row cliff-navigation">
 
             {/* { (showContent) ? ( */}
               <div className="eleven columns"></div>
@@ -76,13 +75,6 @@ class App extends Component {
                 <div className="one-half column phones">
                   <img className="cliff" src="../assets/images/cliff.png"/>
                 </div>
-
-                <Router>
-                  <span>
-                    <Link className='link_5' to="/dedicated/library"><img className='dedicated-library' src="../assets/images/video_library.svg" alt="Library"/></Link>
-                    {/* <Route path="/dedicated/library" component={ Library }/> */}
-                  </span>
-                </Router>
 
             {/* { onShow } */}
           </div>
