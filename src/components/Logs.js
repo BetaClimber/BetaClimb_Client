@@ -16,8 +16,10 @@ class Logs extends Component {
 
     return(
       <div className="one-third logs-wrapper">
-        <p>ClimbType: {climb.climbType}</p>
-        <p>Grade: {climb.gradeType} (USA) | {climb.grade}</p>
+        <h4>ClimbType: </h4>
+        <p>{climb.climbType}</p>
+        <h4>Grade: </h4>
+        <p>{climb.gradeType} (USA) | {climb.grade}</p>
         <Router>
           <ul>
             {this.props.climb.notes.map((note, i) => {

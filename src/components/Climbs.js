@@ -33,29 +33,31 @@ render() {
   console.log(this.props.store);
   return (
     <div className="rendered">
-      <h1 className='cliffnotes-title'>Cliff Notes</h1>
-      <input className="filter-routes" onChange={ this.filter.bind(this) }/>
-      <Router>
-            <ul className='fixed-routes'>
-                {this.props.store.filteredRoutes.map((name, i) => {
-                    const logBuilder = () => {
-                      return(
-                        <Logs climb={ this.props.store.climbs[i] } key={ i } onPop={ this.props.popData } onDelete={ this.onDelete.bind(this) } />
-                      );
-                    }
+      <div className="climb-wrapper lighten">
+        <h1 className='hero-title'>Cliff Notes</h1>
+        <input className="filter-routes" onChange={ this.filter.bind(this) }/>
+        <Router>
+          <ul className='fixed-routes'>
+            {this.props.store.filteredRoutes.map((name, i) => {
+              const logBuilder = () => {
+                return(
+                  <Logs climb={ this.props.store.climbs[i] } key={ i } onPop={ this.props.popData } onDelete={ this.onDelete.bind(this) } />
+                );
+              }
 
-                    return (
-                      <div key={i} className="route-links-wrapper">
+              return (
+                <div key={i} className="route-links-wrapper darken">
 
-                        <li><Link onClick={ this.unMountPath } to={`/${ name }`} key={i}><h2>{ name }</h2></Link></li>
-                        <Route path={ `/${name}` } render={ logBuilder }></Route>
+                  <li><Link onClick={ this.unMountPath } to={`/${ name }`} key={i}><h2>{ name }</h2></Link></li>
+                  <Route path={ `/${name}` } render={ logBuilder }></Route>
 
-                      </div>
-                    );
-                  })
-                }
-            </ul>
+                </div>
+              );
+            })
+          }
+        </ul>
       </Router>
+      </div>
     </div>
 
   );
