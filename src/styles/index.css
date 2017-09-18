@@ -11,6 +11,7 @@ body {
   /*background-size: cover;*/
   /*color: rebeccaPurple;*/
   font-size: 1rem;
+  color: #FFF;
   line-height: 1.41;
 }
 
@@ -113,6 +114,30 @@ h1 {
   }
 }
 
+.hero-title {
+  color: #44D7DF;
+  font-size: 33.2px;
+  line-height: 1.36;
+}
+@media screen and (min-width: 480px) {
+  .hero-title {
+    font-size: 72px;
+    line-height: 1.13;
+  }
+}
+@media screen and (min-width: 960px) {
+  .hero-title {
+    font-size: 101.3px;
+    line-height: 1.28;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .hero-title {
+    font-size: 164.5px;
+    line-height: 1.18;
+  }
+}
+
 /*============================================
 Element Styles
 ============================================*/
@@ -164,7 +189,10 @@ rect {
 /*============================================
   Selector Styles
 ============================================*/
-
+.climb-wrapper {
+  position: absolute;
+  margin-left: 10%;
+}
 
 .navigation-wrapper {
   margin-left: 50%;
@@ -205,9 +233,7 @@ rect {
   position: absolute;
   margin-top: -100%;
   margin-left: 30%;
-}
-
-img.dedicated-library {
+  height: 100px;
 }
 
 .app-brand {
@@ -218,10 +244,11 @@ img.dedicated-library {
 }
 
 .rendered {
-  width: 600px;
+  width: 200%;
   margin-left: 120%;
   margin-top: -30%;
   padding: 40px;
+  padding-right: 0px !important;
   -ms-transform: rotate(50deg);
   -webkit-transform: rotate(50deg);
   transform: rotate(50deg);
@@ -253,10 +280,6 @@ img.dedicated-library {
   margin-left: -60%;
 }
 
-.graph-wrapper {
-  margin-left: -200px;
-}
-
 .fixed-routes{
   position: absolute;
 }
@@ -267,7 +290,7 @@ img.dedicated-library {
 }
 
 .cliff-navigation {
-  margin-left: 60%;
+  margin-left: 40%;
 }
 
 .dedicated-library {
@@ -277,8 +300,55 @@ img.dedicated-library {
 
 .dedicated-library-player {
   z-index: 0;
-  margin-left: -70%;
+  margin-left: -38%;
   margin-top: 33%;
   width: 600px;
   height: 1100px;
+}
+
+.vr-wrapper {
+  padding: 10px;
+  position: absolute;
+  margin-left: 10%;
+}
+
+.description-wrapper {
+  position: absolute;
+  margin-left: 10%;
+}
+
+.vr-frame {
+  display: flex;
+  height: 600px;
+  width: 1000px;
+}
+
+.star-chart {
+  position: absolute;
+  margin-left: 10%;
+}
+
+.pie-chart {
+  width: 900px;
+}
+
+.bar-chart {
+  width: 900px;
+}
+
+.black {
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 10%;
+  padding: 5%;
+}
+
+.lighten {
+  background-color: rgba(0,0,0,0.5);
+  padding: 5%;
+}
+
+.scale-player {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
 }

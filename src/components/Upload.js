@@ -6,37 +6,35 @@ import Dropzone from 'react-dropzone';
 
 @observer
 export class Upload extends Component {
-  @observable files = [];
+  @observable file = null;
   @observable uploaded = false;
 
   onDrop(file) {
-    this.files = file;
+    this.file = file;
     this.uploaded = true;
   }
 
   render(){
     return(
       <div className="rendered">
-        <section>
+        <div className="vr-wrapper lighten">
+          <h1 className='hero-title'>PhotoVR</h1>
           <div className="dropzone">
-            <Dropzone onDrop={this.onDrop.bind(this)}>
+            <Dropzone onDrop={this.onDrop.bind(this) }>
               <p>Drop a Panoramic Skin</p>
             </Dropzone>
           </div>
-          <aside>
-            {(this.uploaded) ? <iframe src="http://www.betaclimb.rocks" frameBorder="0" title='VRPanoramic'></iframe> : '' }
+          { (this.uploaded) ? <iframe className='vr-frame' src="http://www.betaclimb.rocks" frameBorder="0" title='VRPanoramic'></iframe>
+          : '' }
+
+          <h3>Panoramic Image:</h3>
+          {(this.file) ?
             <ul>
-              {this.files.map((image, i) => {
-                return(
-                  <div className="file-upload" key={i}>
-                    <img src={image.preview} alt={image.name}/>
-                    <li key={image.name}>{image.name} - {image.size} bytes</li>
-                  </div>
-                );
-              }) || 'no files yet..'}
-            </ul>
-          </aside>
-        </section>
+            <img src={this.file[0].preview} alt={this.file[0].name}/>
+            <li key={this.file[0].name}>{this.file[0].name} - {this.file[0].size} bytes</li>
+          </ul>
+          : 'no file yet...'}
+        </div>
       </div>
     );
   };

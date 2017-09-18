@@ -13,10 +13,6 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 export class Navigation extends Component{
 
-  componentDidMount(){
-    // getClimbs();
-  }
-
 
   render() {
     const climbBuilder = () => {
@@ -46,7 +42,7 @@ export class Navigation extends Component{
               <Route path="/about" component={ Description }/>
               <Route path="/cliffnotes" render={ climbBuilder }/>
               <Route path="/stats" component={ Stats }/>
-              <Route path="/panoramic/upload" component={ Upload }/>
+              <Route className='panoramic-upload-route' path="/panoramic/upload" component={ Upload }/>
               <Route className='dedicated-library-route' path="/dedicated/library" component={ Library }/>
             </div>
           </div>
