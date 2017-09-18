@@ -4,7 +4,7 @@ Compiled from SASS
 
 body {
   font-family: 'Oswald', sans-serif;
-  background: url('../background/nature2.jpg') no-repeat center center fixed;
+  background: url('../background/nature6.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -271,6 +271,7 @@ img.dedicated-library {
 }
 
 .dedicated-library {
+  margin-top: 33%;
   transform: rotate(50deg);
 }
 
