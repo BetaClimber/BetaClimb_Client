@@ -14,7 +14,7 @@ import store from './store/Store';
 import { observer } from 'mobx-react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Navigation }  from './components/Navigation'
-// import { PreLoader } from './TweenMax/PreLoader';
+import { PreLoader } from './TweenMax/PreLoader';
 
 @observer
 class App extends Component {
@@ -57,15 +57,15 @@ class App extends Component {
 
     return(
     <div className="app-root">
-      {/* { showContent ||<PreLoader /> } */}
+      { showContent ||<PreLoader /> }
         <div className="section hero">
         <div className="container">
           <div className="row cliff-navigation">
 
-            {/* { (showContent) ? ( */}
-              <div className="eleven columns"></div>
-              <Navigation className='one column' popData={ this.populateClimbingData.bind(this) } />
-          {/* ) : ''} */}
+            { (showContent) ?
+              <span>
+                <div className="eleven columns"></div>
+                <Navigation className='one column' popData={ this.populateClimbingData.bind(this) } />
             <div className="one-half column">
               <img className="ledge" src="../assets/images/ledge.png"/>
               <img className='app-brand' src="../assets/images/BetaClimb.png" alt="BetaClimb"/>
@@ -75,31 +75,14 @@ class App extends Component {
                 <div className="one-half column phones">
                   <img className="cliff" src="../assets/images/cliff.png"/>
                 </div>
+              </span>
 
-            {/* { onShow } */}
+                : 'Loading'}
+                { onShow }
+
           </div>
         </div>
       </div>
-
-      {/* { (showContent) ? ( */}
-        {/*
-          <div className="section values">
-            <div className="container">
-              <div className="row">
-
-                <div className="one-third column">
-
-                </div>
-
-                <div className="one-third column">
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </span> */}
-    {/* ) : <h1>Loading</h1> } */}
-
     </div>
     );
   }
