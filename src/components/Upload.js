@@ -4,17 +4,19 @@ import { observable } from "mobx"
 
 import Dropzone from 'react-dropzone';
 
-@observer class Upload extends Component {
+@observer
+export class Upload extends Component {
   @observable files = [];
-  @observable counter = 0;
+  @observable uploaded = false;
 
   onDrop(file) {
     this.files = file;
+    this.uploaded = true;
   }
 
   render(){
     return(
-      <div className="image-drop-wrapper">
+      <div className="rendered">
         <section>
           <div className="dropzone">
             <Dropzone onDrop={this.onDrop.bind(this)}>
@@ -23,6 +25,7 @@ import Dropzone from 'react-dropzone';
           </div>
           <aside>
             <h2>Dropped files</h2>
+            {(this.uploaded) ? <iframe src="https://reactsample-174121.firebaseapp.com" frameBorder="0" title='VRPanoramic'></iframe> : '' }
             <ul>
               {this.files.map((image, i) => {
                 return(
@@ -39,5 +42,3 @@ import Dropzone from 'react-dropzone';
     );
   };
 };
-
-export default Upload;
