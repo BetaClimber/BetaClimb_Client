@@ -17,7 +17,7 @@ class Logs extends Component {
     return(
       <div className="one-third logs-wrapper">
         <p>ClimbType: {climb.climbType}</p>
-        <p>Grade: {climb.gradeType} | {climb.grade}</p>
+        <p>Grade: {climb.gradeType} (USA) | {climb.grade}</p>
         <Router>
           <ul>
             {this.props.climb.notes.map((note, i) => {
@@ -30,7 +30,7 @@ class Logs extends Component {
               return (
                 <div key={i} className="note-link-wrapper">
 
-                  <li><Link to={`/notes_${i}`} key={i} >{ note.title }</Link></li>
+                  <li><Link to={`/notes_${i}`} key={i} ><h3>{ note.title }</h3></Link></li>
                   <Route path={`/notes_${i}`} render={ noteBuilder } key={i}></Route>
 
                 </div>
