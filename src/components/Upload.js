@@ -25,7 +25,7 @@ export class Upload extends Component {
           </div>
           <aside>
             <h2>Dropped files</h2>
-            {(this.uploaded) ? <iframe src="https://reactsample-174121.firebaseapp.com" frameBorder="0" title='VRPanoramic'></iframe> : '' }
+            {(this.uploaded) ? <iframe src="http://www.betaclimb.rocks" frameBorder="0" title='VRPanoramic'></iframe> : '' }
             <ul>
               {this.files.map((image, i) => {
                 return(
