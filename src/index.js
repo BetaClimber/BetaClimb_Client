@@ -65,15 +65,16 @@ class App extends Component {
             { (showContent) ?
               <span>
                 <div className="eleven columns"></div>
-                <Navigation className='one column' popData={ this.populateClimbingData.bind(this) } />
-            <div className="one-half column">
-              <img className="ledge" src="../assets/images/ledge.png"/>
-              <img className='app-brand' src="../assets/images/BetaClimb.png" alt="BetaClimb"/>
-            </div>
 
+                <Navigation className='one column' popData={ this.populateClimbingData.bind(this) } />
+
+                <div className="one-half column">
+                  <img className="ledge" src="../assets/images/ledge.png"/>
+                  <img className='app-brand' src="../assets/images/BetaClimb.png" alt="BetaClimb"/>
+                </div>
 
                 <div className="one-half column phones">
-                  <img className="cliff" src="../assets/images/cliff.png"/>
+                  <img className="cliff" src="../assets/images/rockwall.png"/>
                 </div>
               </span>
 
