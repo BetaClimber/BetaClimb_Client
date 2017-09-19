@@ -6,8 +6,6 @@ import { getClimbs } from './axios/requests';
 
 import 'react-skeleton-css/styles/skeleton.2.0.4.css'
 import './styles/index.css';
-// import './styles/normalize.css';
-
 
 import store from './store/Store';
 
@@ -53,7 +51,6 @@ class App extends Component {
 
   render(){
     const { onShow , showContent } = store;
-    console.log(onShow, showContent);
 
     return(
     <div className="app-root">
@@ -70,7 +67,7 @@ class App extends Component {
 
                 <div className="one-half column">
                   <img className="ledge" src="../assets/images/ledge.png"/>
-                  <img className='app-brand' src="../assets/images/BetaClimb.png" alt="BetaClimb"/>
+                  <img className='app-brand' src="../assets/images/BetaClimb.svg" alt="BetaClimb"/>
                 </div>
 
                 <div className="one-half column phones">

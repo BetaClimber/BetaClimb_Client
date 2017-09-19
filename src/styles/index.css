@@ -191,7 +191,7 @@ rect {
 ============================================*/
 .climb-wrapper {
   position: absolute;
-  margin-left: 10%;
+  margin-left: 15%;
 }
 
 .navigation-wrapper {
@@ -237,7 +237,8 @@ rect {
 }
 
 .app-brand {
-  margin-left: 90%;
+  margin-left: 88%;
+  margin-bottom: -20%;
   display: flex;
   width: 100%;
   height: auto;
@@ -294,27 +295,27 @@ rect {
 }
 
 .dedicated-library {
-  margin-top: 33%;
+  width: 150px;
+  margin-top: 90%;
   transform: rotate(50deg);
 }
 
 .dedicated-library-player {
-  z-index: 0;
-  margin-left: -38%;
-  margin-top: 33%;
-  width: 600px;
+  position: absolute;
+  margin-left: 15%;
+  width: 800px;
   height: 1100px;
 }
 
 .vr-wrapper {
   padding: 10px;
   position: absolute;
-  margin-left: 10%;
+  margin-left: 15%;
 }
 
 .description-wrapper {
   position: absolute;
-  margin-left: 10%;
+  margin-left: 15%;
 }
 
 .vr-frame {
@@ -325,7 +326,7 @@ rect {
 
 .star-chart {
   position: absolute;
-  margin-left: 10%;
+  margin-left: 15%;
 }
 
 .pie-chart {
@@ -349,6 +350,10 @@ rect {
 
 .scale-player {
   padding: 30px;
-  width: 100%;
-  height: 100%;
+  width: 740px;
+  height: 1000px;
+}
+
+.fixed-routes {
+  background-color: salmon;
 }
