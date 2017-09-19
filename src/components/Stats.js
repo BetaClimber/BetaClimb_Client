@@ -59,8 +59,8 @@ export class Stats extends Component {
       hAxis: {title: 'Month'},
       seriesType: 'bars',
       series: {5: {type: 'line'}},
-      width: 400,
-      height: 300
+      width: 900,
+      height: 600
     };
 
 		const chart = new window.google.visualization.ComboChart(document.getElementById(chartID));
@@ -82,8 +82,6 @@ export class Stats extends Component {
           <div className='bar-chart' id="barChart">
             <GoogleChart className='' drawChart={this.drawBarChart} />
           </div>
-
-          <p>Total Climbs: { store.climbs.length }</p>
 
         </div>
       </div>

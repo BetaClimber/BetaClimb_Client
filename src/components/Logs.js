@@ -6,7 +6,7 @@ import Note from './Note';
 
 let climb;
 
-class Logs extends Component {
+export class Logs extends Component {
 
   componentDidMount() {
   }
@@ -44,5 +44,3 @@ class Logs extends Component {
     );
   }
 };
-
-export default Logs;
