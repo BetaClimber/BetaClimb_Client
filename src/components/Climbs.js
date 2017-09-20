@@ -7,11 +7,13 @@ import { observable } from 'mobx';
 
 import { Logs } from './Logs';
 import { AddClimb } from './AddClimb';
+import { store } from '../store/Store';
 
 
 @observer
 export class Climbs extends Component {
-  @observable mountForm = false;
+  @observable mountClimbForm = false;
+  @observable mountNoteForm = false;
   @observable mountClimbs = false;
 
   onDelete(note_id) {
@@ -29,13 +31,28 @@ export class Climbs extends Component {
   }
 
   onMountForm() {
-    this.mountForm = !this.mountForm;
+    this.mountNoteForm = !this.mountNoteForm;
     this.mountClimbs = false;
   }
 
   onMountClimbs() {
     this.mountClimbs = !this.mountClimbs;
-    this.mountForm = false;
+    this.mountNoteForm = false;
+  }
+
+  onPopulate() {
+    this.onMountClimbs();
+
+    getClimbs().then((results) => {
+      this.props.store.climbs.replace(results.data);
+      this.forceUpdate();
+      console.log(results);
+
+      results.data.map((climbs, i) => {
+        this.props.store.climbName[i] = climbs.name;
+        return climbs;
+      });
+    });
   }
 
   filter(event) {
@@ -47,11 +64,12 @@ render() {
   return (
     <div className="rendered">
       <div className="climb-wrapper lighten">
-        <h1 className='hero-title'>Cliff Notes</h1>
+        <h1 className='hero-title'>CliffNotes</h1>
         <button className="button-primary" onClick={ this.onMountForm.bind(this) }>Add Climb</button>
         <button className="button-primary" onClick={ this.onMountClimbs.bind(this) }>Show Climbs</button>
 
-        {(this.mountForm === true ) ? <AddClimb/> : ''}
+        {(this.mountClimbForm === true ) ? <AddClimb onPopulate={ this.onPopulate.bind(this)}/> : ''}
+        {(this.mountNoteForm === true ) ? <AddClimb onPopulate={ this.onPopulate.bind(this)}/> : ''}
 
         <Router>
           <ul className='fixed-routes'>
@@ -64,7 +82,7 @@ render() {
               }
 
               return (
-                <div key={i} className="route-links-wrapper darken">
+                <div key={i} className="route-links-wrapper right-text">
 
                   <li><Link onClick={ this.unMountPath } to={`/${ name }`} key={i}><h2>{ name }</h2></Link></li>
                   <Route path={ `/${name}` } render={ logBuilder }></Route>

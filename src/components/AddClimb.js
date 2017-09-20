@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
+import { store } from '../store/Store.js'
 
 import { postClimbs } from '../axios/requests';
 
 @observer
 export class AddClimb extends Component {
+  constructor(props){
+    super();
+  }
   @observable requestBody = {
     name: '',
     location: '',
@@ -19,30 +23,23 @@ export class AddClimb extends Component {
     const name = target.id;
 
     this.requestBody[name] = target.value;
-    console.log(this.requestBody[name]);
   }
 
-  // onHandleSelection(event){
-  // //   const target = event.target;
-  // //   const name = target.id;
-  // //
-  // //   this.requestBody[name] = target.value;
-  //   event.target.value
-  // }
-
   onSubmitForm() {
-    const reqBody = this.requestBody;
+    const reqBody = {};
 
-    for(let prop in reqBody) {
-      if (reqBody[prop] === '') {
+    for(let prop in this.requestBody) {
+      if (this.requestBody[prop] === '') {
         alert('Please fill out all items.');
         return false
       } else {
-        // AddClimb(reqBody);
-        console.log('requested new climb:', this.requestBody[prop]);
+        reqBody[prop] = this.requestBody[prop];
       }
     }
-    return reqBody;
+    postClimbs(reqBody).then((response) => {
+      this.props.onPopulate();
+    })
+
   }
 
   render() {

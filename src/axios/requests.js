@@ -8,8 +8,8 @@ export function getClimbs() {
   return axios.get(`${API_URL}/routes`);
 }
 
-export function postClimbs() {
-  return axios.post(`${API_URL}/routes`);
+export function postClimbs(reqBody) {
+  return axios.post(`${API_URL}/climbs`, reqBody);
 }
 
 export function putClimbs() {

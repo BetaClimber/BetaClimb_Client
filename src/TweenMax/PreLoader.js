@@ -1,34 +1,45 @@
 import React, { Component } from 'react';
-import { Power2, Back, TimelineLite, TimelineMax } from "gsap";
+import { Power2, Back, Bounce, TimelineLite, TimelineMax } from "gsap";
 
 export class PreLoader extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     const TLDots = new TimelineMax({
-      repeat: 1,
+      repeat: 2,
       oncomplete: this.loadContent
     });
 
-    TLDots.staggerFromTo('.dot', 0.3, {
+    TLDots.staggerFromTo('.dot', 0.5, {
         y: 0,
-        autoAlpha: 0
+        autoAlpha: 0,
       }, {
         y: 20,
         autoAlpha: 1,
         ease: Back.easeInOut
-      }, 0.05).fromTo('#preLoader', 0.3, {
+      }, 0.05).fromTo('#preLoader', 1.5, {
         autoAlpha: 1,
         scale: 1.3
       }, {
         autoAlpha: 0,
         scale: 1,
-        ease: Power2.easeNone
+        ease: Power2.easeNone,
+        rotation: 540
       }, 0.9
     );
   }
 
-  render(){
+  loadContent() {
+    const content = document.getElementById('animate-wrapper');
+    const Tl = new TimelineLite();
 
+    Tl.set(content, {
+      autoAplpha: 1,
+      rotation: 360,
+      ease: Bounce.easeOut
+    });
+  }
+
+  render() {
     return (
       <div className="animate-wrapper">
         <div className="dots" id="preLoader">
