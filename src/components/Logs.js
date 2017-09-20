@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import { observer } from 'mobx-react';
+
 import Note from './Note';
 
 let climb;
 
+@observer
 export class Logs extends Component {
 
   componentDidMount() {
+    console.log(this.props.climb);
   }
 
   render() {
@@ -19,13 +23,18 @@ export class Logs extends Component {
         <h4>ClimbType: </h4>
         <p>{climb.climbType}</p>
         <h4>Grade: </h4>
-        <p>{climb.gradeType} (USA) | {climb.grade}</p>
+        <p>{climb.gradeType} | {climb.grade}</p>
         <Router>
           <ul>
             {this.props.climb.notes.map((note, i) => {
               const noteBuilder = () => {
                 return (
-                  <Note popData={ this.props.onPop } delete={ this.props.onDelete.bind(this) } note={ note } key={i}  />
+                  <Note climbId={ climb.id }
+                        popData={ this.props.onPop }
+                        delete={ this.props.onDelete.bind(this) }
+                        note={ note }
+                        key={i}
+                      />
                 );
               }
 

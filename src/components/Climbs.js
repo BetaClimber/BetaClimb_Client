@@ -13,7 +13,6 @@ import { store } from '../store/Store';
 @observer
 export class Climbs extends Component {
   @observable mountClimbForm = false;
-  @observable mountNoteForm = false;
   @observable mountClimbs = false;
 
   onDelete(note_id) {
@@ -31,13 +30,13 @@ export class Climbs extends Component {
   }
 
   onMountForm() {
-    this.mountNoteForm = !this.mountNoteForm;
+    this.mountClimbForm = true;
     this.mountClimbs = false;
   }
 
   onMountClimbs() {
-    this.mountClimbs = !this.mountClimbs;
-    this.mountNoteForm = false;
+    this.mountClimbs = true;
+    this.mountClimbForm = false;
   }
 
   onPopulate() {
@@ -69,7 +68,6 @@ render() {
         <button className="button-primary" onClick={ this.onMountClimbs.bind(this) }>Show Climbs</button>
 
         {(this.mountClimbForm === true ) ? <AddClimb onPopulate={ this.onPopulate.bind(this)}/> : ''}
-        {(this.mountNoteForm === true ) ? <AddClimb onPopulate={ this.onPopulate.bind(this)}/> : ''}
 
         <Router>
           <ul className='fixed-routes'>
@@ -77,7 +75,11 @@ render() {
               <input className="filter-routes" onChange={ this.filter.bind(this) }/>
               const logBuilder = () => {
                 return(
-                  <Logs climb={ this.props.store.climbs[i] } key={ i } onPop={ this.props.popData } onDelete={ this.onDelete.bind(this) } />
+                  <Logs climb={ this.props.store.climbs[i] }
+                        key={ i }
+                        onPop={ this.props.popData }
+                        onDelete={ this.onDelete.bind(this) }
+                      />
                 );
               }
 

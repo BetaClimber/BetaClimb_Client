@@ -10,6 +10,7 @@ export class AddClimb extends Component {
   constructor(props){
     super();
   }
+
   @observable requestBody = {
     name: '',
     location: '',
@@ -36,10 +37,10 @@ export class AddClimb extends Component {
         reqBody[prop] = this.requestBody[prop];
       }
     }
+
     postClimbs(reqBody).then((response) => {
       this.props.onPopulate();
-    })
-
+    });
   }
 
   render() {
@@ -73,11 +74,13 @@ export class AddClimb extends Component {
           onChange={ (event) => {
             this.onHandleInput(event)
           } }>
+        <option value="Select">Select a Type</option>
         <option value="Bouldering">Bouldering</option>
         <option value="Top-Rope">Top Rope</option>
         <option value="Lead">Lead</option>
         <option value="Solo">Solo</option>
         <option value="Free-Solo">Free Solo</option>
+        <option value="other">Other</option>
       </select>
 
       <label htmlFor="gradeType">System</label>
@@ -87,9 +90,10 @@ export class AddClimb extends Component {
           onChange={ (event) => {
             this.onHandleInput(event)
           } }>
+        <option value="Select">Select a Rating System</option>
         <option value="YDS">YDS</option>
         <option value="Hueco">Hueco</option>
-        <option value="Hueco">Other</option>
+        <option value="other">Other</option>
       </select>
 
       <label htmlFor="grade">Rating</label>
