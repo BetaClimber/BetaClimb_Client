@@ -10,6 +10,7 @@ class CragStore {
       notes: [],
       badges: [],
       files: [],
+      climbAdded: false,
       showContent: false,
       testRoutes: [
         "Crack-of-Dawn", "El Cap", "DBC_V3"
@@ -26,7 +27,7 @@ class CragStore {
         (this.showContent === false) ?
         setTimeout(() => {
           return this.showContent = true;
-        }, 1000) : 'Loaded';
+        }, 3000) : 'Loaded';
       })
     });
   }

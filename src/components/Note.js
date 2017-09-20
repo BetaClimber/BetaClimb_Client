@@ -14,7 +14,8 @@ export class Note extends Component {
         <p>Highlights: {note.highlights}</p>
         <p>Pitt-Falls: {note.pitfalls}</p>
         <p>Condition: {note.conditionType}</p>
-        <button onClick={ this.props.delete.bind(this, note.id) }>Delete</button>
+        <button className='button-primary'>Add</button>
+        <button className='button-primary' onClick={ this.props.delete.bind(this, note.id) }>Delete</button>
       </div>
     );
   }

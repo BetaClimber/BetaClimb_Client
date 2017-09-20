@@ -54,7 +54,7 @@ class App extends Component {
 
     return(
     <div className="app-root">
-      { showContent ||<PreLoader /> }
+      { showContent || <PreLoader /> }
         <div className="section hero">
         <div className="container">
           <div className="row cliff-navigation">
@@ -74,7 +74,6 @@ class App extends Component {
                   <img className="cliff" src="../assets/images/rockwall.png"/>
                 </div>
               </span>
-
                 : 'Loading'}
                 { onShow }
 
