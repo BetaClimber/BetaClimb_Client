@@ -14,14 +14,13 @@ export class Stats extends Component {
   drawPieChart(chartID) {
 
     const data = window.google.visualization.arrayToDataTable([
-      ['Language', 'Speakers (in millions)'],
-      ['Assamese', 13], ['Bengali', 83], ['Bodo', 1.4],
-      ['Dogri', 2.3], ['Gujarati', 46], ['Hindi', 300],
-      ['Kannada', 38], ['Kashmiri', 5.5], ['Konkani', 5],
-      ['Maithili', 20], ['Malayalam', 33], ['Manipuri', 1.5],
-      ['Marathi', 72], ['Nepali', 2.9], ['Oriya', 33],
-      ['Punjabi', 29], ['Sanskrit', 0.01], ['Santhali', 6.5],
-      ['Sindhi', 2.5], ['Tamil', 61], ['Telugu', 74], ['Urdu', 52]
+      ['Climbs', 'total'],
+      ['Bouldering', 13],
+      ['Top-Rope', 83],
+      ['Lead', 5],
+      ['Solo', 1],
+      ['Free-Solo', 3],
+      ['Other', 1]
     ]);
 
     const options = {
@@ -29,10 +28,7 @@ export class Stats extends Component {
       legend: 'none',
       pieSliceText: 'label',
       slices: {
-         4: {offset: 0.2},
-        12: {offset: 0.3},
-        14: {offset: 0.4},
-        15: {offset: 0.5},
+         2: {offset: 0.5}
       },
       'width':400,
       'height':300
@@ -45,17 +41,15 @@ export class Stats extends Component {
   drawBarChart(chartID) {
 
     const data = window.google.visualization.arrayToDataTable([
-       ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-       ['2004/05',  165,      938,         522,             998,           450,      614.6],
-       ['2005/06',  135,      1120,        599,             1268,          288,      682],
-       ['2006/07',  157,      1167,        587,             807,           397,      623],
-       ['2007/08',  139,      1110,        615,             968,           215,      609.4],
-       ['2008/09',  136,      691,         629,             1026,          366,      569.6]
+       ['Month', 'Notes', 'climbs', 'PanoUploads'],
+       ['2017/05',  5,       24,        0],
+       ['2017/06',  30,      40,        2],
+       ['2017/07',  80,      83,        10]
     ]);
 
     const options = {
-      title : 'Monthly Coffee Production by Country',
-      vAxis: {title: 'Cups'},
+      title : 'Monthly Logs',
+      vAxis: {title: 'Logs'},
       hAxis: {title: 'Month'},
       seriesType: 'bars',
       series: {5: {type: 'line'}},

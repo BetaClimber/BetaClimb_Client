@@ -41,13 +41,13 @@ export class Logs extends Component {
     climb = this.props.climb
 
     return(
-      <div className="one-third logs-wrapper">
+      <div className="one-third logs-wrapper black-overlay">
 
         <button className='button-primary' onClick={ this.onMountForm.bind(this) }>Add Note</button>
 
-        <h4>ClimbType: </h4>
+        <h4 className='brown-header'>ClimbType: </h4>
         <p>{climb.climbType}</p>
-        <h4>Grade: </h4>
+        <h4 className='brown-header'>Rating: </h4>
         <p>{climb.gradeType} | {climb.grade}</p>
         {(this.onMount) ?
         <span>
@@ -70,7 +70,7 @@ export class Logs extends Component {
 
               return (
                 <div key={i} className="note-link-wrapper">
-
+                  <h4 className='brown-header'>Note #{i + 1}</h4>
                   <li><Link to={`/notes_${i}`} key={i} ><h3>{ note.title }</h3></Link></li>
                   <Route path={`/notes_${i}`} render={ noteBuilder } key={i}></Route>
 

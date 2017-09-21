@@ -6,11 +6,11 @@ import { observer } from 'mobx-react';
 @observer
 export class AddNote extends Component {
   @observable requestBody = {
-    "title": "this is a dumby climb",
-    "highlights": "It was fun getting to know more about what climbing now has to offer",
-    "pitfalls": "I had a hard time catching my balance at the crux",
-    "blerb": "My climbing buddy showed me a better way to the top",
-    "conditionType": "indoors"
+    "title": '',
+    "highlights": '',
+    "pitfalls": '',
+    "blerb": '',
+    "conditionType": ''
   }
 
   onHandleInput(event) {
@@ -39,7 +39,7 @@ export class AddNote extends Component {
 
   render() {
     return (
-      <div className="add-climb-wrapper">
+      <div className="add-climb-wrapper note-wrapper">
         <label htmlFor="name">title</label>
         <input
               defaultValue={ this.requestBody.title }

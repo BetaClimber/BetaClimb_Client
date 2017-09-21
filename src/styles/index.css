@@ -374,3 +374,14 @@ rect {
 .project {
   margin-top: 20%;
 }
+
+.black-overlay {
+  text-align: left;
+  padding: 15px;
+  background-color: rgba(0,0,0,0.7);
+  color: rgba(71,79,106);
+}
+
+.brown-header {
+  color: brown;
+}

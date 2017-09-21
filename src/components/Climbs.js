@@ -86,13 +86,12 @@ render() {
               return (
                 <div key={i} className="route-links-wrapper right-text">
 
-                  <li><Link onClick={ this.unMountPath } to={`/${ name }`} key={i}><h2>{ name }</h2></Link></li>
+                  <li className='black-overlay'><Link className='brown-header' onClick={ this.unMountPath } to={`/${ name }`} key={i}><h2>{ name }</h2></Link></li>
                   <Route path={ `/${name}` } render={ logBuilder }></Route>
 
                 </div>
               );
-            })
-          : ''}
+            }) : '' }
         </ul>
       </Router>
       </div>
