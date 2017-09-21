@@ -26,10 +26,14 @@ export function getNotes() {
   return axios.get(`${API_URL}/notes`);
 }
 
-export function postNotes() {
-  return axios.post(`${API_URL}/notes`);
+export function postNotes(reqBody) {
+  return axios.post(`${API_URL}/notes`, reqBody);
 }
 
 export function deleteNotes(id) {
   return axios.delete(`${API_URL}/notes/${id}`);
+}
+
+export function routeNoteJoin(reqBody) {
+  return axios.post(`${API_URL}/route/notes`, reqBody);
 }
