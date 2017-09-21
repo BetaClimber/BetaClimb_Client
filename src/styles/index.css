@@ -194,6 +194,10 @@ rect {
   margin-left: 15%;
 }
 
+.route-links-wrapper {
+  min-width: 400px;
+}
+
 .navigation-wrapper {
   margin-left: 50%;
   padding-top: 50%;
@@ -281,10 +285,6 @@ rect {
   margin-left: -60%;
 }
 
-.fixed-routes{
-  position: absolute;
-}
-
 .cliffnotes-title {
   font-size: 6rem;
   margin-bottom: 10%;
@@ -332,6 +332,7 @@ rect {
 .star-chart {
   position: absolute;
   margin-left: 15%;
+  background-color: #FFF !important;
 }
 
 .pie-chart {
@@ -354,13 +355,14 @@ rect {
 }
 
 .fixed-routes {
-  margin-top: 10%;
-  margin-left: 170px;
+  position: absolute;
+  margin-top: 15%;
+  margin-left: -12%;
   text-align: center;
   float: right;
   background-color: rgba(71,79,106,0.8);
   padding: 30px;
-  width: 60%;
+  width: 100%;
 }
 
 .right-text {
@@ -384,4 +386,16 @@ rect {
 
 .brown-header {
   color: brown;
+}
+
+.sunset-logo {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 60px;
+  width: 48px;
+}
+
+.float-right {
+  float: right;
+  margin: -48% 20px 20px 20px;
 }

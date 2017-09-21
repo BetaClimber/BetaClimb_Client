@@ -50,7 +50,7 @@ export class Logs extends Component {
         <h4 className='brown-header'>Rating: </h4>
         <p>{climb.gradeType} | {climb.grade}</p>
         {(this.onMount) ?
-        <span>
+        <span className='float-right'>
           <AddNote onPopulate={ this.onPopulate.bind(this) }/>
         </span>
         : '' }

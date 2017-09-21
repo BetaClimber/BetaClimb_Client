@@ -24,12 +24,13 @@ export class Stats extends Component {
     ]);
 
     const options = {
-      title: 'progress',
+      title: 'Climb Total',
       legend: 'none',
       pieSliceText: 'label',
       slices: {
-         2: {offset: 0.5}
+         1: {offset: 0.5}
       },
+      'is3D': true,
       'width':400,
       'height':300
     };
@@ -42,9 +43,9 @@ export class Stats extends Component {
 
     const data = window.google.visualization.arrayToDataTable([
        ['Month', 'Notes', 'climbs', 'PanoUploads'],
-       ['2017/05',  5,       24,        0],
-       ['2017/06',  30,      40,        2],
-       ['2017/07',  80,      83,        10]
+       ['2017/05',  5,       14,        0],
+       ['2017/06',  30,      29,        2],
+       ['2017/07',  80,      83,       10]
     ]);
 
     const options = {
@@ -53,6 +54,7 @@ export class Stats extends Component {
       hAxis: {title: 'Month'},
       seriesType: 'bars',
       series: {5: {type: 'line'}},
+      is3D: true,
       width: 900,
       height: 600
     };
@@ -71,7 +73,9 @@ export class Stats extends Component {
 
           <div className='pie-chart'id="pieChart">
             <GoogleChart className='' drawChart={this.drawPieChart} />
+            <img className='float-right' src="../assets/images/progress.png" alt="Stats Logo"/>
           </div>
+
 
           <div className='bar-chart' id="barChart">
             <GoogleChart className='' drawChart={this.drawBarChart} />

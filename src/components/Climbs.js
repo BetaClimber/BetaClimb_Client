@@ -67,11 +67,11 @@ render() {
         <button className="button-primary" onClick={ this.onMountForm.bind(this) }>Add Climb</button>
         <button className="button-primary" onClick={ this.onMountClimbs.bind(this) }>Show Climbs</button>
 
-        {(this.mountClimbForm === true ) ? <AddClimb onPopulate={ this.onPopulate.bind(this)}/> : ''}
-
+        { (this.mountClimbForm === true ) ? <AddClimb onPopulate={ this.onPopulate.bind(this)}/> : ''}
+        { (this.mountClimbs) ?
         <Router>
           <ul className='fixed-routes'>
-            {(this.mountClimbs) ? this.props.store.filteredRoutes.map((name, i) => {
+            { this.props.store.filteredRoutes.map((name, i) => {
               <input className="filter-routes" onChange={ this.filter.bind(this) }/>
               const logBuilder = () => {
                 return(
@@ -86,14 +86,15 @@ render() {
               return (
                 <div key={i} className="route-links-wrapper right-text">
 
-                  <li className='black-overlay'><Link className='brown-header' onClick={ this.unMountPath } to={`/${ name }`} key={i}><h2>{ name }</h2></Link></li>
+                  <li className='black-overlay'><Link className='brown-header' onClick={ this.unMountPath } to={`/${ name }`} key={i}><h2><img className='sunset-logo' src="../assets/images/sunset.png" alt="climb-sunset"/>{ name }</h2></Link></li>
                   <Route path={ `/${name}` } render={ logBuilder }></Route>
 
                 </div>
               );
-            }) : '' }
+            }) }
         </ul>
       </Router>
+      : '' }
       </div>
     </div>
 
