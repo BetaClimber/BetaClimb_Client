@@ -40,7 +40,7 @@ export class Climbs extends Component {
   }
 
   onPopulate() {
-    this.onMountClimbs();
+    (this.mountClimbs === false) ? this.onMountClimbs() : '';
 
     getClimbs().then((results) => {
       this.props.store.climbs.replace(results.data);
@@ -77,7 +77,7 @@ render() {
                 return(
                   <Logs climb={ this.props.store.climbs[i] }
                         key={ i }
-                        onPop={ this.props.popData }
+                        onPop={ this.onPopulate.bind(this) }
                         onDelete={ this.onDelete.bind(this) }
                       />
                 );

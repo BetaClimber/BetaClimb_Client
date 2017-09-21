@@ -1,18 +1,40 @@
 import React, { Component } from 'react';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { routeNoteJoin, postNotes, putClimbs } from '../axios/requests';
 
 import { observer } from 'mobx-react';
+import { observable } from 'mobx';
 
-import Note from './Note';
+import { Note } from './Note';
+import { AddNote } from './AddNote';
 
 let climb;
 
 @observer
 export class Logs extends Component {
+  @observable onMount = false;
 
   componentDidMount() {
     console.log(this.props.climb);
+  }
+
+  onPopulate(reqBody) {
+
+    postNotes(reqBody).then((results) => {
+      routeNoteJoin({
+        routeId: this.props.climb.id,
+        noteId: results.data.data[0].id
+      }).then((routeNoteResults) => {
+        this.props.onPop();
+      })
+    })
+    this.onMount = false;
+  }
+
+
+  onMountForm() {
+    this.onMount = !this.onMount;
   }
 
   render() {
@@ -20,10 +42,18 @@ export class Logs extends Component {
 
     return(
       <div className="one-third logs-wrapper">
+
+        <button className='button-primary' onClick={ this.onMountForm.bind(this) }>Add Note</button>
+
         <h4>ClimbType: </h4>
         <p>{climb.climbType}</p>
         <h4>Grade: </h4>
         <p>{climb.gradeType} | {climb.grade}</p>
+        {(this.onMount) ?
+        <span>
+          <AddNote onPopulate={ this.onPopulate.bind(this) }/>
+        </span>
+        : '' }
         <Router>
           <ul>
             {this.props.climb.notes.map((note, i) => {
