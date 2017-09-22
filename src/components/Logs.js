@@ -45,15 +45,21 @@ export class Logs extends Component {
 
         <button className='button-primary' onClick={ this.onMountForm.bind(this) }>Add Note</button>
 
-        <h4 className='brown-header'>ClimbType: </h4>
-        <p>{climb.climbType}</p>
-        <h4 className='brown-header'>Rating: </h4>
+        <h4 className='brown-header'>Location</h4>
+        <p>{climb.location}</p>
+
+        <h4 className='brown-header'>Rating</h4>
         <p>{climb.gradeType} | {climb.grade}</p>
+
+        <h4 className='brown-header'>ClimbType</h4>
+        <p>{climb.climbType}</p>
+
         {(this.onMount) ?
         <span className='float-right'>
           <AddNote onPopulate={ this.onPopulate.bind(this) }/>
         </span>
         : '' }
+
         <Router>
           <ul>
             {this.props.climb.notes.map((note, i) => {

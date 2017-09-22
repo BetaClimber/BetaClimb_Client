@@ -399,3 +399,12 @@ rect {
   float: right;
   margin: -48% 20px 20px 20px;
 }
+
+.filter-routes {
+  background-color: black;
+  border: 10px solid black;
+  color: brown;
+  font-size: 20px;
+  height: 30px;
+  margin-left: 20px;
+}

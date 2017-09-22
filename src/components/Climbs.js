@@ -29,6 +29,10 @@ export class Climbs extends Component {
     });
   }
 
+   filter(event) {
+    this.props.store.filter = event.target.value;
+   }
+
   onMountForm() {
     this.mountClimbForm = true;
     this.mountClimbs = false;
@@ -67,12 +71,13 @@ render() {
         <button className="button-primary" onClick={ this.onMountForm.bind(this) }>Add Climb</button>
         <button className="button-primary" onClick={ this.onMountClimbs.bind(this) }>Show Climbs</button>
 
+        <input className="filter-routes" onChange={ this.filter.bind(this) }/>
+
         { (this.mountClimbForm === true ) ? <AddClimb onPopulate={ this.onPopulate.bind(this)}/> : ''}
         { (this.mountClimbs) ?
         <Router>
           <ul className='fixed-routes'>
             { this.props.store.filteredRoutes.map((name, i) => {
-              <input className="filter-routes" onChange={ this.filter.bind(this) }/>
               const logBuilder = () => {
                 return(
                   <Logs climb={ this.props.store.climbs[i] }

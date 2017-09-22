@@ -27,7 +27,7 @@ class CragStore {
         (this.showContent === false) ?
         setTimeout(() => {
           return this.showContent = true;
-        }, 3000) : 'Loaded';
+        }, 4000) : 'Loaded';
       })
     });
   }
