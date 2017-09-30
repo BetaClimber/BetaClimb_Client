@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://betaclimb.herokuapp.com';
+const API_URL = 'https://betaclimb.herokuapp.com';
 
 // climbs
 
